@@ -1,0 +1,86 @@
+.page-register{
+    // 背景图片
+    height:100%;
+    width:100%;
+    position:absolute;
+    .register-form{
+        width:1000px;
+        margin:200px 0 0 200px;
+        border-radius:2px;
+        border:#bbb 1px solid;
+        p.page-title{
+            height:40px;
+            line-height:40px;
+            font-size:15px;
+            text-align:left;
+            text-indent: .5rem;
+            background-color: #ddd;
+        }
+        .el-form{
+            position:relative;
+            padding:20px 300px 20px 50px;
+            .el-form-item{
+                margin-bottom:5px;
+                label{
+                    text-align:left;
+                    padding-right:20px;
+                }
+                .el-button{
+                    width:100px;
+                    margin:20px 0;
+                    position:relative;
+                    left: calc(50% - 100px);
+                }
+            }
+            .pw-strength{ 
+                position: absolute;
+                width: 246px;
+                top: 120px;
+                left: 720px;
+                background: #eee;
+                margin-bottom:20px;
+                label{
+                    float:left;
+                    margin-top:-20px;
+                    color:red;
+                }
+                .bar {
+                  background: #d3ebee;
+                  height: 20px;
+                  width: 0;
+                  left:0;
+                  overflow: hidden;
+                  transition: all .4s linear;
+                  &.week {
+                    width: 80px;
+                    background: #f76120;
+                  }
+                  &.normal {
+                    width: 162px;
+                    background: #ff8900;
+                  }
+                  &.strong {
+                    width: 246px;
+                    background: #5bab3c;
+                  }
+                }
+                .letter {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  span {
+                    display: block;
+                    float: left;
+                    text-align: center;
+                    font-size: 12px;
+                    height: 20px;
+                    line-height: 20px;
+                    width: 80px;
+                    border-right: 2px solid #fff;
+                    color: #fff;
+                  }
+                }
+              }
+        }
+    }
+}

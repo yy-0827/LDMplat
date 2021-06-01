@@ -1,0 +1,48 @@
+@import "./reset.css";
+
+@font-face {
+    font-family: 'iconfont';
+    src: url('../font/iconfont.eot');
+    src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'),
+        url('../font/iconfont.woff2') format('woff2'),
+        url('../font/iconfont.woff') format('woff'),
+        url('../font/iconfont.ttf') format('truetype'),
+        url('../font/iconfont.svg#iconfont') format('svg');
+  }
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+.page-default .top-bar,.top-menu{
+    background-color:#345;
+    overflow: hidden;
+}
+
+/* .blank-page {
+    background: url(//src/assets/img/login-bg.jpg) center center no-repeat;
+    background-size: cover;
+} */
+
+.blank-page h3{
+    position:absolute;
+    color:#239;
+    font-size:30px;
+    text-align:left;
+    padding:30px;
+}
+
+
+#app{
+    height: 100%;
+}
+#app>.page-default{
+    height: 100%;
+}
+#app>.page-default>.synView-page{
+    height: calc(100% - 94px);
+}

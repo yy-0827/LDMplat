@@ -1,0 +1,60 @@
+.addDevice-page{
+    padding: 50px;
+    .el-breadcrumb{
+        margin-top: 10px;
+        padding-left: 10px;
+        border-left: 4px solid rgb(44, 115, 182);
+        span{
+            font-size: 22px;
+            font-weight: normal;
+        }
+    }
+    .addinfo{
+        margin-top:-5px;
+        margin-left:30px;
+        h3{
+            height:40px;
+            text-align:left;
+            padding-top:20px;
+            padding-left: 30%;
+            font-size:25px;
+        }
+        form{
+            padding: 10px 100px;
+            .el-form-item{
+                position:relative;
+                margin: 15px 0;
+                label{
+                    width: 250px;
+                    display: inline-block;
+                    text-align: right;
+                    padding-right: 30px; 
+                    color: #000;
+                    font-size: 20px;
+                }
+                .el-input{
+                    width: 50%;
+                    right: 0;
+                    font-size: 20px;
+                    .el-input__inner{
+                        width: 80%;
+                    }
+                }
+                &.btn{
+                    padding-left: 26%;
+                    margin-top: 25px;
+                    .el-button {
+                        width: 110px;
+                        &.confirm{
+                            color: #f4f4f4;
+                            background-color: #6397db;
+                            &:hover{
+                                background-color: #4177be;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

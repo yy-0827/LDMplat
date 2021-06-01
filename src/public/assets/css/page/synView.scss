@@ -1,0 +1,167 @@
+.synView-page{
+    .console {
+        z-index: 999;
+        width: auto;
+        min-width: 35%;
+        margin-left: 20px;
+        position: fixed;
+        top: 200px;
+        border-radius: .25rem;
+        font-size: 14px;
+        color: #666;
+        background-color:rgba(201, 231, 263, 0);
+        box-shadow: none;
+        border: none;
+        .el-tabs__header{
+            width: 225px;
+            background-color:rgba(201, 231, 263, 0.7);
+            span.el-tabs__nav-prev{
+                display:none;
+            }
+            span.el-tabs__nav-next{
+                display:none;
+            }
+            .el-tabs__nav-wrap.is-scrollable {
+                padding: 0 0px;
+            }
+        }.el-tabs__content{
+            // height:500px;
+            box-shadow: 0 2px 6px 0 rgba(27, 142, 236, 0.5);
+            background-color:rgba(201, 231, 263, 0.6);
+            .search-bar{
+                margin-top: 20px;
+                padding-left: 30px; 
+                span{
+                    font-size:17px;
+                }
+                .el-input{
+                    width: 80%;
+                    height: 43px;
+                    left: 20px;
+                    .el-input-group__prepend{
+                        width: 120px;
+                        padding: 0 5px;
+                    }
+                    .el-input__inner{
+                        height: 44px;
+                    }
+                }
+                .el-button{
+                    width: 80px;
+                    background-color: rgb(148, 187, 219);
+                    position: relative;
+                    left: 2px;
+                    top: 1px;
+                    border: none;
+                    height: 44px;
+                }
+                >i{
+                    transform: translate(40px,4px);
+                    font-size: 30px;
+                    opacity: 0.4;
+                    color:rgb(96, 121, 173);
+                    &:hover{
+                        color: blue;
+                    }
+                }
+            }
+            .item-list{
+                margin-top: 15px;
+                font-size: 17px;
+                .el-tabs__content{
+                    padding: 15px 0px;
+                }
+                >.el-collapse{
+                    opacity: 0.8;
+                    .el-collapse-item{
+                        .el-collapse-item__header{
+                            padding: 0 20px;
+                            font-size:16px;
+                            background-color: rgba(78, 154, 199, 0.4);
+                            span{
+                                margin-left: 8px;
+                                margin-right: 8px;
+                            }
+                            i{
+                                font-size: 20px;
+                                &:hover{
+                                    cursor: pointer;
+                                    color: rgb(33, 113, 206);
+                                }
+                            }
+                        }
+                        .el-collapse-item__content{
+                            padding-bottom: 0px;
+                            background-color: rgba(102, 151, 179, 0.4);
+                            >ul{
+                                >li{
+                                    border-bottom: 1px dashed rgb(137, 164, 223);
+                                    padding: 2px 20px; 
+                                    span{
+                                        font-size: 16px;
+                                        margin-left: 12px;
+                                    }
+                                    i{
+                                        font-size: 20px;
+                                        &:hover{
+                                            cursor: pointer;
+                                            color: red;
+                                        }
+                                    }
+                                    >input{
+                                        width: 100px;
+                                        margin: 6px 8px 5px 6px;
+                                        background-color: rgba(114, 166, 199, 0.279);
+                                    }
+                                    &.edit{
+                                        background-color: rgba(114, 166, 196, 0.479);
+                                    }
+                                }
+                            }
+                        }
+
+                        >span{
+                            margin: 10px;
+                        }
+                    }
+                    >i{
+                        font-size: 25px;
+                        margin-left: 110px;
+                        margin-bottom: -20px;
+                        bottom: 20px;
+                        &:hover{
+                            cursor: pointer;
+                            font-weight: bolder;
+                        }
+                        &.el-icon-arrow-down{
+                            margin-left: 100px;
+                        }
+                    }
+                }
+            }
+            //数据统计页
+            .static{
+                width: 400px;
+                >div{
+                    margin: 20px 10px;
+                    >i{
+                        font-size: 20px;
+                        &:hover{
+                            color: rgb(47, 66, 173);
+                        }
+                    }
+                    >span{
+                        font-size: 20px;
+                    }
+                    >p{
+                        height: 8px;
+                    }
+                }
+            }
+        }
+    }
+    #container{
+        height: 100%;
+        width: 100%;
+    }  
+}

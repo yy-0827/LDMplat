@@ -1,0 +1,182 @@
+.user-page{
+    padding: 50px;
+    h4{
+        font-size: 20px;
+        padding-left: 10px;
+        border-left: 4px solid rgb(44, 115, 182);
+    }
+    // 搜索框
+    .user-search{
+        margin-top:100px;
+        margin-left:30px;
+        .el-input{
+            width:200px;
+            float:left;
+            margin-right:20px;
+        }
+        .el-button{
+            background-color:rgb(78, 123, 207);
+            span{
+                font-size:14px;
+                color:rgb(228, 228, 228);
+            }
+        }
+    }
+    //列表
+    .user-info-list{
+        border:#aaa 1px solid;
+        margin-top: 40px;
+        margin-left: 30px;
+        width:calc(100% - 60px);
+        thead{
+            background-color: rgb(110, 180, 247);
+            tr{
+                th{
+                    color:#f4f4f4;
+                    border-right: #ccc 1.5px solid;
+                    font-size:15px;
+                    line-height:35px;
+                    height:35px;
+                }
+            }
+        }
+        tbody{
+            tr{
+                td{
+                    line-height: 35px;
+                    height: 35px;
+                    font-size: 14px;
+                    color: #333;
+                    text-align: center;
+                    border-right: #ccc 1.5px solid;
+                    .btn{
+                        padding: 3px 10px;
+                        margin-left: 5px;
+                        color: #fff;
+                        font-size: 12px;
+                        border-radius: 3px;
+                        border: none;
+                        cursor: pointer;
+                        outline: none;
+                        &.edit {
+                            background-color: #5cb85c;
+                            margin-left:-10px;
+                            &:hover {
+                                background-color: #398439;
+                            }
+                        }
+                        &.del {
+                            background-color: #d9534f;
+                            margin-right:-10px;
+                            &:hover {
+                                background-color: #c9302c;
+                            } 
+                        }
+                    }
+                }
+                &:nth-child(2n){
+                    background-color:rgb(246, 249, 250);
+                }
+            }
+        }
+    }
+    //页面信息
+    // .user-listinfo{
+    //     margin-left: 30px;
+    //     margin-top: 20px;
+    //     .el-select{
+    //         width: 70px;
+    //         height:25px;
+    //         .el-input{
+    //             >input{
+    //                 font-size:12px;
+    //                 height: 30px;
+    //                 line-height: 30px;
+    //             }
+    //             .el-input__suffix {
+    //                 position: absolute;
+    //                 top: 5px;
+    //                 .is-reverse{
+    //                     transform:translateY(-10px);
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+    //添加设备弹窗
+    /* 编辑弹框*/
+    .modal{
+        position:fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        //弹窗背景遮罩层
+        .mask {
+            position:fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        //编辑弹窗内容区
+        .modal-content{
+            background-color: #fff;
+            width: 800px;
+            height: 800px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -400px;
+            margin-top: -400px;
+            h3 {
+                color: #000;
+                text-indent: 2em;
+                padding-top:40px;
+                font-size:25px;
+            }
+            form {
+                width: 600px;
+                margin: 80px auto;
+                >div{
+                    position: relative;
+                    margin: 15px 0;
+                    label {
+                        width: 150px;
+                        display: inline-block;
+                        text-align: right;
+                        padding-right: 30px; 
+                        color: #000;
+                        font-size: 18px;
+                    }
+                    .el-input{
+                        width: calc(100% - 190px);
+                        right: 0;
+                        .el-input__inner{
+                            width: 80%;
+                        }
+                    }
+                    &.btn{
+                        padding-left: calc(50% - 110px);
+                        margin-top: 20px;
+                        .el-button {
+                            width: 110px;
+                            &.confirm{
+                                margin-left: -15px;
+                                color: #f4f4f4;
+                                background-color: #6397db;
+                                &:hover{
+                                    background-color: #4177be;
+                                }
+                            }
+                            &.cancel{
+                                margin-left: 30px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

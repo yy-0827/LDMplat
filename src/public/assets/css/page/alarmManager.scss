@@ -1,0 +1,131 @@
+.alarm-page{
+    padding: 50px;
+    margin-top: -10px;
+    h4{
+        font-size: 18px;
+        padding-left: 10px;
+        border-left: 4px solid rgb(44, 115, 182);
+    }
+    // 搜索框
+    .alarm-search{
+        margin-top:50px;
+        margin-left:30px;
+        >.input-container{
+            width: 100%;
+            position: absolute;
+            >div{
+                float: left;
+                margin-left: 30px;
+                padding-top: 40px;
+                position: relative;
+                >span,label{
+                    position: absolute;
+                    margin-top: -30px;
+                    font-size: 16px;
+                    text-align: bottom;
+                }
+            }
+        }
+        >.buttom-container{
+            padding-top: 84px;
+            button{
+                margin-right: 15px;
+                margin-left: 30px;
+                width: 200px;
+            }
+            label{
+                margin-left: 60px;
+            }
+        }
+        .el-checkbox{
+                .el-checkbox__label{
+                    font-size: 16px;
+                    margin-bottom: 10px;
+                }
+            }
+
+        .el-input{
+            width:200px;
+            float:left;
+            margin-right:20px;
+        }
+        .el-button{
+            background-color:rgb(78, 123, 207);
+            span{
+                font-size:14px;
+                color:rgb(228, 228, 228);
+            }
+        }
+    }
+    //列表
+    .alarm-info-list{
+        border:#aaa 1px solid;
+        margin-top: 40px;
+        margin-left: 30px;
+        width:calc(100% - 60px);
+        thead{
+            background-color: rgb(110, 180, 247);
+            tr{
+                th{
+                    color:#f4f4f4;
+                    border-right: #ccc 1.5px solid;
+                    font-size:15px;
+                    line-height:35px;
+                    height:35px;
+                }
+            }
+        }
+        tbody{
+            tr{
+                td{
+                    line-height: 35px;
+                    height: 35px;
+                    font-size: 14px;
+                    color: #333;
+                    text-align: center;
+                    border-right: #ccc 1.5px solid;
+                    .btn{
+                        padding: 3px 10px;
+                        margin-left: 5px;
+                        color: #fff;
+                        font-size: 12px;
+                        border-radius: 3px;
+                        border: none;
+                        cursor: pointer;
+                        outline: none;
+                        &.edit {
+                            background-color: #5cb85c;
+                            margin-left:-10px;
+                            &:hover {
+                                background-color: #398439;
+                            }
+                        }
+                        &.del {
+                            background-color: #d9534f;
+                            margin-right:-10px;
+                            &:hover {
+                                background-color: #c9302c;
+                            } 
+                        }
+                    }
+                    &.red{
+                        color: red;
+                    }
+                    >div{
+                        &:hover{
+                            cursor: pointer;
+                            text-decoration: underline;
+                            color: blue;
+                        }
+                    }
+                }
+                &.cancel{
+                    opacity: 0.4;
+                }
+                &:nth-child(2n){
+                    background-color:rgb(251, 252, 253);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,51 @@
+.page-login{
+    // 背景图片
+    height:100%;
+    width:100%;
+    position:absolute;
+    .login-form{
+        border-radius:4px;
+        background-color: rgb(119, 173, 240);
+        width:300px;
+        margin:160px auto;
+        .login-pannel>p{
+            padding:20px 30px;
+            font-size:24px;
+            text-align:left;
+            color:#ddd;
+            border-bottom:2px solid #aaf
+        }
+        .form{
+            padding:28px 48px 28px 48px;
+            >p{
+                position:absolute;
+                color:red;
+                text-align:left;
+                margin-top: -24px;
+            }
+            .el-input{
+                margin-bottom:16px;
+            }
+            .memory-code{
+                .el-switch{
+                    float:left;
+                }
+                p{
+                    margin-left:.5em;
+                    float:left;
+                }
+                a{
+                    float:right;
+                }
+            }
+            .el-button{
+                position:relative;
+                width:100%;
+                margin:20px 0 20px 0;
+            }
+            .foot{
+                padding-left:35px;
+            }
+        }
+    }
+}
