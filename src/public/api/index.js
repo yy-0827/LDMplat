@@ -44,7 +44,7 @@ function login(loginId, loginPwd) {
 }
 //注册
 function register(item) {
-    return request.post(URLs.login,item)
+    return request.post(URLs.register,item)
 }
 
 //统计数据

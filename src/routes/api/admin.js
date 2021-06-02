@@ -6,50 +6,46 @@ const cryptor = require("../../util/cryptor")
 
 //登录
 router.post("/login",
-    asyncHandler(async (req, res) => {
-        const result = await adminServ.login(req.body.loginId, req.body.loginPwd);
-        console.log(result)
-        if (result && result.level) {
-            let value = result.level;
-            value = cryptor.encrypt(value.toString());
-            //登录成功
-            res.cookie("token", value,
-            {
-              path: "/",
-              domain: "localhost",
-              maxAge: 24 * 3600 * 1000, //毫秒数
-            }
-            );
-            res.header("authorization", value);
-            console.log(req.cookies)
-        }
-          return result;
-        }
-        )
-    )
-
-    //注册
-router.post("/register",
-asyncHandler(async (req, res) => {
-    const result = await adminServ.register(req.body);
-    console.log(result)
+  asyncHandler(async (req, res) => {
+    const result = await adminServ.login(req.body.loginId, req.body.loginPwd);
     if (result && result.level) {
-        let value = result.level;
-        value = cryptor.encrypt(value.toString());
-        //登录成功
-        res.cookie("token", value,
+      let value = result.level;
+      value = cryptor.encrypt(value.toString());
+      //登录成功
+      res.cookie("token", value,
         {
           path: "/",
           domain: "localhost",
           maxAge: 24 * 3600 * 1000, //毫秒数
         }
-        );
-        res.header("authorization", value);
-        console.log(req.cookies)
+      );
+      res.header("authorization", value);
     }
-      return result;
+    return result;
+  }
+  )
+)
+
+//注册
+router.post("/register",
+  asyncHandler(async (req, res) => {
+    const result = await adminServ.register(req.body);
+    if (result && result.level) {
+      let value = result.level;
+      value = cryptor.encrypt(value.toString());
+      //登录成功
+      res.cookie("token", value,
+        {
+          path: "/",
+          domain: "localhost",
+          maxAge: 24 * 3600 * 1000, //毫秒数
+        }
+      );
+      res.header("authorization", value);
     }
-    )
+    return result;
+  }
+  )
 )
 
 module.exports = router;

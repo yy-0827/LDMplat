@@ -19,7 +19,11 @@ exports.login = async function (id, psw) {
     let res = {};
     const admin = await adminTable.findOne({
         where: {
-            loginId: id,
+            [Op.or]: {
+                loginId: id,
+                name: id
+            }
+
         }
     });
     if (admin) {
@@ -34,13 +38,22 @@ exports.login = async function (id, psw) {
 };
 
 exports.register = async function (item) {
+    //判断用户是否存在
+    let admin = await adminTable.findOne({
+        where: {
+            loginId: item.loginId,
+        }
+    });
+    if (admin) {
+        return "该用户已存在"
+    }
     const level = exports.judgelevel(item.invitecode);
     if (level) {
         item.level = level;
-        const admin = await adminTable.create(item);
+        item.loginPwd = md5(item.loginPwd);
+        admin = await adminTable.create(item);
         console.log(`注册成功，权限为${level}`)
-        return admin
+        return { id: admin.id, name: admin.name, level: admin.level }
     }
-    console.log(item);
-    return false;
+    return "邀请码不正确";
 };

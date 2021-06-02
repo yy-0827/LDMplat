@@ -51,7 +51,7 @@ export default {
   },
   computed:{
     loginname: function(){
-      return this.$store.state.loginname || "yy"
+      return this.$store.state.loginname || "请登录"
     }
   }
 };

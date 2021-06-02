@@ -19,16 +19,15 @@ app.use(bodyParser.json());
 
 //处理跨域错误的中间件
 app.use(require("./corsMiddleware"))
-//app.use(require("./tokenMiddleware"))
+
 
 //在req对象中注入cookies属性，用于获取所有请求传递过来的cookie
 //在res对象中注入cookie方法，用于设置cookie
 const cookieParser = require("cookie-parser");
 app.use(cookieParser());
 
-
-//生成验证码的中间件
-//app.use(require("./captchaMiddleware"));
+//验证token
+app.use(require("./tokenMiddleware"))
 
 //处理api请求
 app.use("/api/user", require("./api/user"));

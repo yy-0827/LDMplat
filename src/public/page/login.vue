@@ -6,8 +6,16 @@
       </div>
       <div class="form">
         <p>{{ info }}</p>
-        <el-input v-model="userinfo" placeholder="用户名/id" type="text"></el-input>
-        <el-input v-model="loginPwd" placeholder="密码" type="password"></el-input>
+        <el-input
+          v-model="userinfo"
+          placeholder="用户名/id"
+          type="text"
+        ></el-input>
+        <el-input
+          v-model="loginPwd"
+          placeholder="密码"
+          type="password"
+        ></el-input>
         <div class="memory-code">
           <el-switch
             v-model="rememberWord"
@@ -52,14 +60,13 @@ export default {
       this.$api
         .login(this.userinfo, this.loginPwd)
         .then((data) => {
-          console.log(data)
           //成功登录
           if (data.data.data.id) {
             this.$message({
               type: "success",
               message: "登录成功!",
             });
-            this.$store.commit("login",data.data.data.name)
+            this.$store.commit("login", data.data.data.name);
             this.$router.push({ name: "synView" }); //跳转至首页
           } else {
             //账户不存在

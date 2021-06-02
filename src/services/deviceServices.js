@@ -128,7 +128,10 @@ exports.delDevice = async (item) => {
 
 //编辑设备信息
 exports.editDevice = async (obj) => {
-  //验证操作权限
+    //验证操作权限
+    if(obj.level != '1'){
+      return "您没有操作权限"
+    }
   //验证设备存在
   const updateinfo = JSON.parse(obj.updateobj)
   const result = await Devices.update(updateinfo, {

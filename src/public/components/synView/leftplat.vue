@@ -31,7 +31,7 @@
               ></i>
               <span>用户id：{{ item.userid }}</span>
               <span>设备id:{{ item.di }}</span>
-              <span>{{
+              <span v-if="item.alarmlist">{{
                 item.alarmlist.length
                   ? "告警数:" + item.alarmlist.length + "个"
                   : "无告警信息"

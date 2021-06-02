@@ -22,20 +22,19 @@ module.exports = (req, res, next) => {
       return;
     }
 
-    // let token = req.cookies.token;
-    // if (!token) {
-    //   // 从header的authorization中获取
-    //   token = req.headers.authorization;
-    // }
-    // if (!token) {
-    //   //没有认证
-    //   handleNonToken(req, res, next);
-    //   return;
-    // }
-    // const level = cryptor.decrypt(token);
-    // req.level = level;
-    // console.log(`token验证通过,权限等级为${level}`)
-    // next();
+    let token = req.cookies.token;
+    if (!token) {
+      // 从header的authorization中获取
+      token = req.headers.authorization;
+    }
+    if (!token) {
+      //没有认证
+      handleNonToken(req, res, next);
+      return;
+    }
+    const level = cryptor.decrypt(token);
+    req.query.level = level;
+    next();
 
   };
   //处理没有认证的情况
