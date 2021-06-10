@@ -73,7 +73,10 @@
         </div>
         <el-divider></el-divider>
         <div>
-          <i class="el-icon-message-solid" @click="changepage('alarmManager')"></i>
+          <i
+            class="el-icon-message-solid"
+            @click="changepage('alarmManager')"
+          ></i>
           <span>未处理的告警信息：{{ total.alarmbind }}</span>
           <p></p>
           <i class="el-icon-bell" @click="changepage('alarmManager')"></i>
@@ -87,6 +90,9 @@
 <script>
 import bus from "./eventBus";
 export default {
+  created() {
+    this.$store.commit("setRecentList", { data: [], page: 1, limit: 10 });
+  },
   data() {
     return {
       info: {
@@ -159,9 +165,9 @@ export default {
         this.total = data.data.data;
       });
     },
-    changepage(name){
-      this.$router.push({ name })
-    }
+    changepage(name) {
+      this.$router.push({ name });
+    },
   },
   computed: {
     calstate(data) {

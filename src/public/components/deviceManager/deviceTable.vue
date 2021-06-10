@@ -65,13 +65,21 @@ export default {
         type: "warning",
       })
         .then(() => {
-          this.$api.delDevice(di).then(() => {
+          this.$api.delDevice(di).then(data => {
             //删除的api
             this.getDeviceList({ page: 1 }).catch((err) => console.log(err));
-            this.$message({
-              type: "success",
-              message: "删除成功!",
-            });
+            if (!data.data.data) {
+              //没有权限
+              this.$message({
+                type: "info",
+                message: "您没有操作权限！",
+              });
+            } else {
+              this.$message({
+                type: "success",
+                message: "删除成功!",
+              });
+            }
           });
         })
         .catch(() => {

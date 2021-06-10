@@ -55,8 +55,16 @@ exports.getUsersByPage = async ({ page, limit }) => {
 exports.addUser = async (item) => {
   //验证操作权限
   //验证数据是否完整且合理
-  const newuser = await Users.create(item);
-  return newuser
+  let user = await Users.findOne({
+    where: {
+      userid: item.userid
+    }
+  })
+  if(!user){
+      const newuser = await Users.create(item);
+      return newuser
+  }
+return false
 }
 
 //删除用户

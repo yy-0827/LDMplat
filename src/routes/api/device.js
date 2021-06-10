@@ -1,7 +1,7 @@
 const express = require("express");
 const sendMsg = require("../getSendResult");
 const deServices = require("../../services/deviceServices")
-
+const cryptor = require("../../util/cryptor");
 const router = express.Router();
 
 
@@ -25,13 +25,27 @@ router.get("/add?", async (req, res) => {
 
 //删除设备
 router.get("/delete?", async (req, res) => {
-    const result = await deServices.delDevice(req.query);
-    res.send(sendMsg.getResult(result));
+    if (req.cookies.token) {
+        let level = cryptor.decrypt(req.cookies.token)
+        if (level == 1) {
+            const result = await deServices.delDevice(req.query);
+            res.send(sendMsg.getResult(result));
+        } else {
+            res.send(sendMsg.sendErr("您没有权限！", 403))
+        }
+    }
 })
 //修改设备
 router.get("/edit?", async (req, res) => {
-    const result = await deServices.editDevice(req.query);
-    res.send(sendMsg.getResult(result));
+    if (req.cookies.token) {
+        let level = cryptor.decrypt(req.cookies.token)
+        if (level == 1) {
+            const result = await deServices.editDevice(req.query);
+            res.send(sendMsg.getResult(result));
+        } else {
+            res.send(sendMsg.sendErr("您没有权限！", 403))
+        }
+    }
 })
 
 module.exports = router;

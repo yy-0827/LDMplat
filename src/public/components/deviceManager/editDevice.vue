@@ -4,7 +4,7 @@
     <div
       class="mask"
       id="mask"
-      @click="$store.commit('setShow', ['edit',false])"
+      @click="$store.commit('setShow', ['edit', false])"
     ></div>
     <!-- 编辑内容区 -->
     <div class="modal-content">
@@ -28,31 +28,19 @@
         </div>
         <div>
           <label for="vd">设备厂商</label>
-          <el-input
-            label="vd"
-            v-model="iteminfo.vd"
-          ></el-input>
+          <el-input label="vd" v-model="iteminfo.vd"></el-input>
         </div>
         <div>
           <label for="dt">设备型号</label>
-          <el-input
-            label="dt"
-            v-model="iteminfo.dt"
-          ></el-input>
+          <el-input label="dt" v-model="iteminfo.dt"></el-input>
         </div>
         <div>
           <label for="aph">告警联系人电话</label>
-          <el-input
-            label="aph"
-            v-model="iteminfo.aph"
-          ></el-input>
+          <el-input label="aph" v-model="iteminfo.aph"></el-input>
         </div>
         <div>
           <label for="cph">社区联系人电话</label>
-          <el-input
-            label="cph"
-            v-model="iteminfo.cph"
-          ></el-input>
+          <el-input label="cph" v-model="iteminfo.cph"></el-input>
         </div>
         <div class="btn">
           <el-button class="confirm" @click="commitInfo">确定</el-button>
@@ -70,8 +58,7 @@ export default {
   //   console.log(this.iteminfo)
   // },
   data() {
-    return {
-    };
+    return {};
   },
   methods: {
     // editInfo(e, prop) {
@@ -79,13 +66,22 @@ export default {
     // },
     commitInfo() {
       //判断是否修改了数据
-      this.$store
-        .dispatch("updateDevice", this.iteminfo)
+      this.$api
+        .updateDevice(this.iteminfo.di, this.iteminfo)
         .then((data) => {
-          this.$message({
-            type: "success",
-            message: "更新成功!",
-          });
+          if (!data.data.data) {
+            //没有权限
+            this.$message({
+              type: "info",
+              message: "您没有操作权限！",
+            });
+          } else {
+            this.$message({
+              type: "success",
+              message: "更新成功!",
+            });
+          }
+          this.$store.dispatch("getDeviceList", {});
         })
         .catch(() => {
           this.$message({
@@ -93,10 +89,10 @@ export default {
             message: "更新出现错误！",
           });
         });
-      this.$store.commit("setShow", ['edit',false]);
+      this.$store.commit("setShow", ["edit", false]);
     },
     cancelcommit() {
-      this.$store.commit("setShow", ['edit',false]);
+      this.$store.commit("setShow", ["edit", false]);
     },
   },
   computed: {

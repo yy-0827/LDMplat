@@ -13,7 +13,7 @@ export default new Vuex.Store({
             more: false,
             add: false
         },
-        iteminfo: {},
+        iteminfo: "",
         searchlock: false,
         recentlist: [],//展示列表
         searchlist: [],//搜索列表
@@ -46,7 +46,7 @@ export default new Vuex.Store({
         setItemInfo(state, info) {
             state.iteminfo = info;
         },
-        login(state,name){
+        login(state, name) {
             state.loginname = name;
         }
     },
@@ -129,11 +129,6 @@ export default new Vuex.Store({
                 commit("insertNewItem", info)
             }).catch(err => console.log(err))
         },
-        updateDevice({ state, dispatch }, obj) {
-            api.updateDevice(obj.di, obj).then(_ => {
-                dispatch("getDeviceList", {})
-            })
-        },
         //获取告警信息
         getAlarmList({ state, commit, dispatch }, { page, limit }) {
             if (!page) page = state.recentpage;
@@ -143,6 +138,7 @@ export default new Vuex.Store({
                     data = data.data.data;
                     //判断页数是否超额，否则跳转到最后一页
                     page = Math.min(Math.ceil(data.count / limit), page) || 1;
+                    commit("setItemInfo", "");
                     commit("setRecentList", { data, page, limit });
                 })
             } else { dispatch("getSearchList", { page, limit }) }
@@ -150,15 +146,20 @@ export default new Vuex.Store({
         searchAlarm({ commit, dispatch }, info) {
             api.searchAlarm(info).then(data => {
                 //未获得数据
-                if (typeof(data.data.data) == "string" || data.data.data.length == 0) {
-                    let eptinfo = { rows: data.data.data, count: 0 }
+                if (typeof (data.data.data) == "string" || data.data.data.length == 0) {
+                    let eptinfo = { rows: [], count: 0 }
                     commit("setRecentList", { page: 1, data: eptinfo });
+                    if (typeof (data.data.data) == "string") {
+                        commit("setItemInfo", data.data.data)
+                    }
                 } else {
                     //获取数据
                     commit("setSearchList", data.data.data);
+                    commit("setItemInfo", "");
                     dispatch("getSearchList", { page: 1 });
                 }
-            })
+            }
+            )
         },
         //测试接口
         test({ commit, state }, item) {

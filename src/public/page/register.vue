@@ -98,12 +98,12 @@ export default {
       var regStr = /[a-zA-Z]+/g;
       var regNum = /(\d)+/g;
       var strongth =
-        this.form.loginId.match(regStr) && this.form.loginId.match(regNum);
-      if (this.form.loginId.length > 8 && strongth) {
+        this.form.loginPwd.match(regStr) && this.form.loginPwd.match(regNum);
+      if (this.form.loginPwd.length > 8 && strongth) {
         this.strengthClass = "strong";
-      } else if (!this.form.loginId) {
+      } else if (!this.form.loginPwd) {
         this.strengthClass = "";
-      } else if (this.form.loginId.length <= 4) {
+      } else if (this.form.loginPwd.length <= 4) {
         this.strengthClass = "week";
       } else {
         this.strengthClass = "normal";
@@ -112,6 +112,7 @@ export default {
     cancel() {
       this.info = "";
       this.form = {};
+      this.$router.push({ name: "login" })
     },
   },
 };

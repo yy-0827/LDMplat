@@ -32,7 +32,7 @@
           <td>{{ tritime(item.tt) }}</td>
           <td>{{ calcs(item.rcs) }}</td>
           <td :class="[item.rp <= 20 ? 'red' : '']">{{ item.rp + "%" }}</td>
-          <td>{{ calss(item.ss) }}</td>
+          <td :class="[item.ss < 2 ? 'blue' : '']">{{ calss(item.ss) }}</td>
           <td>
             <div @click="cancelAlarm(item)">
               {{ item.als ? "解除告警" : "取消解除" }}
@@ -41,6 +41,7 @@
         </tr>
       </tbody>
     </table>
+    <p>{{ iteminfo }}</p>
   </div>
 </template>``
 
@@ -96,7 +97,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(["recentlist"]),
+    ...mapState(["recentlist","iteminfo"]),
   },
 };
 </script>

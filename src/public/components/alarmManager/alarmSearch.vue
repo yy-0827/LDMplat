@@ -58,7 +58,7 @@
     <div class="buttom-container">
       <el-button @click="submitinfo">查询</el-button>
       <el-button @click="initialize">重置</el-button>
-      <el-checkbox v-model="info.unbind">显示解绑信息</el-checkbox>
+      <!-- <el-checkbox v-model="info.unbind">显示解绑信息</el-checkbox> -->
     </div>
   </div>
 </template>
@@ -74,7 +74,7 @@ export default {
         daterange: "",
         alltime: true,
         alldate: true,
-        unbind: false,
+        unbind: true,
         //timerange: [new Date(), new Date()],
       },
       aimoptions: [
@@ -121,12 +121,10 @@ export default {
       this.info = {
         alltime: true,
         alldate: true,
+        unbind: true
       };
       this.$store.commit("setSearchLock", false);
       this.$store.dispatch("getAlarmList", { page: 1, limit: 10  });
-    },
-    renewlist() {
-      this.$store.dispatch("getAlarmList", { page: 1, limit: 10 });
     },
   },
 };

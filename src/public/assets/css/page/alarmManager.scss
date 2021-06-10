@@ -111,6 +111,9 @@
                     &.red{
                         color: red;
                     }
+                    &.blue{
+                        color: blue;
+                    }
                     >div{
                         &:hover{
                             cursor: pointer;
@@ -127,5 +130,10 @@
                 }
             }
         }
+    }
+    p{
+        font-size: 15px;
+        margin-left: 36px;
+        margin-top: 8px;
     }
 }

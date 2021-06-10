@@ -97,6 +97,18 @@ exports.getItem = async (item) => {
     }
     return list;
   }
+  let filterunbind = async function (unbind, list) {
+    let res = [];
+    if (unbind) {
+      return list;
+    }
+    res = list.filter((value) => {
+      if (value.als == 1) {
+        return true
+      }
+    });
+    return res = res.length ? res : "无告警信息";
+  }
   list = await filterid(item.searchid, item.searchaim);
   if (!list instanceof Array) {
     return list
@@ -106,6 +118,10 @@ exports.getItem = async (item) => {
     return list
   }
   list = await filtertime(list, item);
+  if (!list instanceof Array) {
+    return list
+  }
+  list = await filterunbind(item.unbind, list);
   if (!list instanceof Array) {
     return list
   }
@@ -137,12 +153,12 @@ exports.cancelAlarm = async (info) => {
 
 //获取追踪列表
 exports.gettrack = async (item) => {
-  console.log(item.id)
   const list = await Alarm.findAll({
     where: {
       [Op.and]: {
         di: item.di,
-        alc: 100
+        alc: 100,
+        als: 1
       }
     }
   })

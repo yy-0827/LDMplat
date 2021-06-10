@@ -34,7 +34,7 @@ export default new Router({
       path: '/',
       name: 'default',
       component: defaultPage,
-      redirect: '/synView',
+      redirect: '/blank',
       children: [{
         path: '/synView',
         name: 'synView',
