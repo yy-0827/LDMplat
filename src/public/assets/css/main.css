@@ -24,9 +24,14 @@
 }
 
 /* .blank-page {
-    background: url(//src/assets/img/login-bg.jpg) center center no-repeat;
+    background: url(//src/public/assets/img/login.jpg) center center no-repeat;
     background-size: cover;
 } */
+.blank-page img{
+    height:100%;
+    width:100%;
+}
+
 
 .blank-page h3{
     position:absolute;
